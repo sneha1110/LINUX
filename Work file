@@ -1,0 +1,102 @@
+1-> Create Directory structure :-
+  - Create a Direcotry called /home/dir -> mkdir /home/dir
+  - create a structure like - /home/dir/world/asia/india/karnataka/banglore/coss --> mkdir /home/dir/world/asia/india/karnataka/banglore/coss
+									mkdir /home/dir  
+                  cd /home/dir
+									chmod 644 /home/dir
+									touch file{1..20}
+									mkdir world
+									chmod 644 world 
+                  cd world
+									touch file{1..20}   
+									mkdir asia
+									chmod 644 asia  
+                  cd asia
+									touch file{1..20}
+									mkdir india
+									chmod 644 asia 
+                  cd india
+									touch file{1..20}
+                  mkdir karnataka
+									chmod 644 asia 
+                  cd karnataka
+									touch file{1..20}
+									mkdir banglore
+									chmod 644 banglore 
+                  cd banglore
+									touch file{1..20}
+                  mkdir coss
+									chmod 644 asia 
+                  cd coss
+									touch file{1..20}		 
+
+					
+  - Each directory should have 20files with any name with permission 'rw' for root , for  group and others should have only read access.
+                                                      
+                                                 cd /home/dir/
+	touch file{1..20} asia/file{1..20} asia/india/file{1..20} asia/india/karnataka/file{1..20} asia/india/karnataka/banglore/file{1..20} asia/india/karnataka/banglore/coss/file{1..20}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2->  Create users:- 
+  - Create a group called 'jboss' ->    groupadd jboss
+  - create users 'admin' & 'accounts' and users should belongs to 'jboss' group -->
+  useradd -G jboss admin 
+  useradd -G jboss accounts
+				or using usermod 
+	 usermod -aG jboss accounts
+		usermod -aG jboss admin
+ - create users  'jenkins' & 'git' with non interactive shell and should not belongs to any group.
+		useradd -N -s jenkins 
+    useradd -N -s git
+  - create a user 'devops' with uid 4422 and should have sudo privilage.
+	useradd -u 4222 devops 
+  vim /etc/sudoers  devops 
+  ALL=ALL  NOPASSWD: ALL
+  - create a duplicate user of root named 'non admin'.
+    useradd name -u 0 non admin
+- Each user created password must 'redhat12345'.
+	chpasswd
+	devops, jenkins, git
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+3-> Create customized command :-
+  - create customized command 'process' of 'ps -aux'
+     vim .bashrc
+		 alias process = 'ps - aux'
+ --------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 4-> Permission
+  - Create a directory '/mnt/hwreport'
+   	mkdir /mnt/hwreport
+	- Group owner ship of the directory should belongs to 'whell' 
+   	groupadd whell	
+   	cd /mnt
+	  chgrp whell hwreport/
+	- Directory should have full permission for group owner and should not have any permission to others.
+      chmod 770 hwreport
+   - In future if you create any subdirectory or file under the directory shoud get the same ownership.
+     chgrp -R wheel hwreport
+------------------------------------------------------------------------------------------------------------------------------------------
+
+5-> Permission
+  - 'fdisk -l'  should exute by all the normal users.
+ALL     ALL=(ALL) NOPASSWD: /sbin/fdisk
+---------------------------------------------------------------------------------------------------------------------------------------
+
+6-> Encrypt files :-
+  - Create files 'file1,file2,file3,file4,file5'. each file should have the content "Hello World"
+  touch file{1..5}
+  cat >> file1
+  Hello World
+  cat >> file2
+  Hello World
+  cat >> file3
+  Hello World
+  cat >> file4
+  Hello World
+  cat >> file5
+  Hello World
+- Make sure that each file encrypted.
+  vim file1
+  ESC :X
+-
