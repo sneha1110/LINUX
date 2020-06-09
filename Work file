@@ -80,7 +80,9 @@
 
 5-> Permission
   - 'fdisk -l'  should exute by all the normal users.
-ALL     ALL=(ALL) NOPASSWD: /sbin/fdisk
+     fdisk -l
+     chmod u+s /user/sbin/fdisk
+     su -student
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 6-> Encrypt files :-
