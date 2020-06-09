@@ -1,34 +1,34 @@
 1-> Create Directory structure :-
   - Create a Direcotry called /home/dir -> mkdir /home/dir
   - create a structure like - /home/dir/world/asia/india/karnataka/banglore/coss --> mkdir /home/dir/world/asia/india/karnataka/banglore/coss
-									mkdir /home/dir  
+		  mkdir /home/dir  
                   cd /home/dir
-									chmod 644 /home/dir
-									touch file{1..20}
-									mkdir world
-									chmod 644 world 
+	          chmod 644 /home/dir
+		  touch file{1..20}
+	          mkdir world
+		  chmod 644 world 
                   cd world
-									touch file{1..20}   
-									mkdir asia
-									chmod 644 asia  
+		  touch file{1..20}   
+		  mkdir asia
+		  chmod 644 asia  
                   cd asia
-									touch file{1..20}
-									mkdir india
-									chmod 644 asia 
+		  touch file{1..20}
+		  mkdir india
+		  chmod 644 asia 
                   cd india
-									touch file{1..20}
+		  touch file{1..20}
                   mkdir karnataka
-									chmod 644 asia 
+		  chmod 644 asia 
                   cd karnataka
-									touch file{1..20}
-									mkdir banglore
-									chmod 644 banglore 
+		  touch file{1..20}
+		  mkdir banglore
+		  chmod 644 banglore 
                   cd banglore
-									touch file{1..20}
+		  touch file{1..20}
                   mkdir coss
-									chmod 644 asia 
+		  chmod 644 asia 
                   cd coss
-									touch file{1..20}		 
+		  touch file{1..20}		 
 
 					
   - Each directory should have 20files with any name with permission 'rw' for root , for  group and others should have only read access.
